@@ -159,7 +159,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
-    libnetcmdiface
+    libnetcmdiface \
+    libwvm \
+    wpa_supplicant \
+    p2p_supplicant
 
 # Enable Widevine drm
 PRODUCT_PROPERTY_OVERRIDES += drm.service.enabled=true
