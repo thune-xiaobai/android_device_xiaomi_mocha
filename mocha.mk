@@ -63,6 +63,7 @@ else
         LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
@@ -97,6 +98,10 @@ PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/idc/touch.idc:system/usr/idc/touch.idc \
   $(LOCAL_PATH)/idc/touch_fusion.idc:system/usr/idc/touch_fusion.idc \
   $(LOCAL_PATH)/idc/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc
+
+#dt.img
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/dt.img:dt.img
 
 # keylayout
 PRODUCT_COPY_FILES += \
