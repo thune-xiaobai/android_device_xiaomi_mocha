@@ -115,6 +115,6 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 #WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
 #WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 
-BOARD_USES_STOCK_POLICY := true
+#BOARD_USES_STOCK_POLICY := true
 
 BOARD_HARDWARE_CLASS := device/xiaomi/mocha/cmhw/
