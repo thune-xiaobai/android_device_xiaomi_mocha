@@ -16,8 +16,12 @@
 
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
-DEVICE_RESOLUTION := 1536x2048
+#DEVICE_RESOLUTION := 1536x2048
+DEVICE_RESOLUTION := 1200x1920
 TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
+
+COMMON_GLOBAL_CFLAGS += \
+    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL 
 
 # Architecture
 TARGET_NO_BOOTLOADER := true
