@@ -44,9 +44,6 @@ PRODUCT_PACKAGES += \
     ueventd.mocha.rc
 
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mocha/rootdir/etc/init:root/init \
-    device/xiaomi/mocha/rootdir/etc/init.rc:root/init.rc \
-    device/xiaomi/mocha/rootdir/sbin/healthd:root/sbin/healthd \
     device/xiaomi/mocha/rootdir/sbin/chargeonlymode:root/sbin/chargeonlymode \
     device/xiaomi/mocha/rootdir/sbin/mdbd:root/sbin/mdbd
 
@@ -122,9 +119,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audioConfig_qvoice_icera_pc400.xml:system/etc/audioConfig_qvoice_icera_pc400.xml \
     $(LOCAL_PATH)/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
-    $(LOCAL_PATH)/audio/nvaudio_fx.xml:system/etc/nvaudio_fx.xml \
     $(LOCAL_PATH)/audio/asound.conf:system/etc/asound.conf
 
 #misc

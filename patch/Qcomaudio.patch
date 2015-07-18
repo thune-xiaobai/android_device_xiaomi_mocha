@@ -1,0 +1,28 @@
+diff --git a/hardware/libhardware/include/hardware/audio.h b/hardware/libhardware/include/hardware/audio.h
+index 23f28b2..88bd116 100644
+--- a/hardware/libhardware/include/hardware/audio.h
++++ b/hardware/libhardware/include/hardware/audio.h
+@@ -751,6 +751,7 @@ struct audio_hw_device {
+     int (*listen_set_parameters)(struct audio_hw_device *dev,
+                                  const char *kv_pairs);
+ #endif
++    int (*set_fm_volume)(struct audio_hw_device *dev, float volume);
+ };
+ typedef struct audio_hw_device audio_hw_device_t;
+ 
+diff --git a/hardware/libhardware/include/hardware/audio_policy.h b/hardware/libhardware/include/hardware/audio_policy.h
+index 99cb044..fb1abd3 100644
+--- a/hardware/libhardware/include/hardware/audio_policy.h
++++ b/hardware/libhardware/include/hardware/audio_policy.h
+@@ -333,6 +333,11 @@ struct audio_policy_service_ops {
+     int (*invalidate_stream)(void *service,
+                              audio_stream_type_t stream);
+ 
++    /* set fm audio volume. */
++    int (*set_fm_volume)(void *service,
++    			 float volume,
++    			 int delay_ms);
++
+     /* function enabling to send proprietary informations directly from audio
+      * policy manager to audio hardware interface. */
+     void (*set_parameters)(void *service,

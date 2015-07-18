@@ -21,7 +21,8 @@ DEVICE_RESOLUTION := 1200x1920
 TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
 
 COMMON_GLOBAL_CFLAGS += \
-    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL 
+    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
+    -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL 
 
 # Architecture
 TARGET_NO_BOOTLOADER := true
@@ -49,7 +50,7 @@ COMMON_GLOBAL_CFLAGS += -DHAVE_MIUI_AUDIO_BLOB
 USE_LEGACY_AUDIO_POLICY := 1
 
 #BOARD_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED 
-#COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED
+COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED
 
 #LOGD
 TARGET_USES_LOGD := false
@@ -93,11 +94,20 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TARGET_PREBUILT_RECOVERY_KERNEL := device/xiaomi/mocha/kernel
 BOARD_MKRECOVERYIMG_ARGS := --dt device/xiaomi/mocha/dt.img
 PRODUCT_COPY_FILES += device/xiaomi/mocha/twrp.fstab:recovery/root/etc/twrp.fstab \
-		      device/xiaomi/mocha/rootdir/etc/init:recovery/root/init \
 		      device/xiaomi/mocha/rootdir/sbin/e2fsck_static:recovery/root/sbin/e2fsck_static
+
+# RenderScript
+OVERRIDE_RS_DRIVER := libnvRSDriver.so
+# BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 
 # Graphics
 USE_OPENGL_RENDERER := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
+BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
+
+# Per-application sizes for shader cache
+MAX_EGL_CACHE_SIZE := 4194304
+MAX_EGL_CACHE_ENTRY_SIZE := 262144
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
